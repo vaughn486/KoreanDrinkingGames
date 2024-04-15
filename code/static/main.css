@@ -1,0 +1,27 @@
+.container-fluid{
+    padding: 10px;
+    background-color: rgb(236, 236, 236);
+}
+.navbar{
+    padding: 0px;
+}
+.navbar-nav {
+    width: 100%; /* Ensure the nav occupies the full width of its container */
+}
+
+.nav-item {
+    flex: 1; /* Each nav item will grow equally */
+    text-align: center; /* Center-align the text inside each nav item */
+}
+.home-text{
+    margin-top: 30px; 
+    text-align: center;
+    width: 100%;
+}
+.home-title{
+    font-weight: bold;
+    font-size: 26px; 
+}
+.button-container{
+    padding: 20px;
+}

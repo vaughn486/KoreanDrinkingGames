@@ -77,9 +77,17 @@ num_of_questions = 4
 def homepage():
    return render_template('home.html')   
 
-@app.route('/learn')
-def learn():
-   return render_template('learn.html')   
+@app.route('/learn_culture/<int:lesson>')
+def learn_culture(lesson):
+    return render_template('learn_culture.html', lesson=lesson) 
+
+@app.route('/learn_etiquette/<int:lesson>')
+def learn_etiquette(lesson):
+    return render_template('learn_etiquette.html', lesson=lesson) 
+
+@app.route('/learn_games/<int:lesson>')
+def learn_games(lesson):
+    return render_template('learn_games.html', lesson=lesson) 
 
 @app.route('/quiz')
 def quiz():
