@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
 from flask import Markup
+from datetime import datetime  # Import the datetime module
 app = Flask(__name__)
 
 import re
@@ -70,16 +71,25 @@ num_of_questions = 4
 
 content_etiquette = [
    {
-      "lesson_id":"1"
+      'id': 1,
+      'title': 'Formal Drinking Etiquette - Summary',
+      'last_accessed': None
+      
    },
    {
-      "lesson_id":"2"
+      'id': 2,
+      'title': 'Formal Drinking Etiquette - Rule 1',
+      'last_accessed': None
    },
    {
-      "lesson_id":"3"
+      'id': 3,
+      'title': 'Formal Drinking Etiquette - Rule 2',
+      'last_accessed': None
    },
    {
-      "lesson_id":"4"
+      'id': 4,
+      'title': 'Formal Drinking Etiquette - Rule 3',
+      'last_accessed': None
    }
 ]
 
@@ -107,9 +117,31 @@ def homepage():
 def learn_culture(lesson):
     return render_template('learn_culture.html', lesson=lesson) 
 
+@app.route('/api/learn_etiquette/<int:lesson>')
+def api_learn_etiquette(lesson):
+    if 1 <= lesson <= len(content_etiquette):
+        lesson_data = content_etiquette[lesson - 1]  # Fetch the lesson data
+        return jsonify(lesson_data)  # Return data as JSON
+    else:
+        return jsonify({'error': 'Lesson not found'}), 404
+
+# Route to handle the POST request and update last accessed time
+@app.route('/api/update_last_accessed_etiquette', methods=['POST'])
+def update_last_accessed_etiquette():
+    lesson_id = request.form.get('lesson_id')
+    lesson_id = int(lesson_id)
+    # Find the lesson with the given ID and update the last accessed time
+    for lesson in content_etiquette:
+        if lesson['id'] == lesson_id:
+            lesson['last_accessed'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            return jsonify({'success': True})
+    # If the lesson ID is not found
+    return jsonify({'error': 'Lesson ID not found'}), 404
+
 @app.route('/learn_etiquette/<int:lesson>')
 def learn_etiquette(lesson):
-   return render_template('learn_etiquette.html', lesson=lesson) 
+   print("Content being passed:", content_etiquette[lesson - 1])
+   return render_template('learn_etiquette.html', lesson=content_etiquette[lesson-1]) 
 
 @app.route('/api/learn_games/<int:lesson>')
 def api_learn_games(lesson):
