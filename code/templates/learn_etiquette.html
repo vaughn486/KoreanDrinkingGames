@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'learn_etiquette.js') }}"></script>
+    <script>
+        var lesson= {{ lesson }};
+        
+    </script>
+
+
+
+    <div id="content1" class="material">
+        <h1> Formal Drinking Etiquette - Summary</h1>
+        <div>
+            In Korean culture, there is a strong emphasis on 
+            <b>respecting elders or those in higher positions</b>, 
+            particularly in business settings. 
+        </div><br>
+        <div>
+            This reverence is reflected 
+            <b>not only in language</b>, 
+            where there are distinct differences in formal and informal speech, 
+            <b>but also in social customs such as drinking etiquette. </b>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+	    	<div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="center-container">
+                            <button class="number-block">1</button>
+                            <div>Avoid pouring your own drink, and 
+                                ensure others always have their glass filled</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center-container">
+                        <div class="center-container">
+                            <button class="number-block">2</button>
+                            <div>Turn away from an elder and cover your 
+                                mouth while drinking
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center-container">
+                        <div class="center-container">
+                            <button class="number-block">3</button>
+                            <div>Hold the glass/bottle in the appropriate position
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+
+    <div id="content2" class="material">
+        <h1> Formal Drinking Etiquette - Rule 1</h1>
+        <div class="inline-container">
+	    	<button class="number-block">1</button>
+            <div>Avoid pouring your own drink, and ensure others always have their glass filled
+            </div>
+        </div>
+        <center><iframe id="vid-etiquette-1" width="560" height="315" 
+            src="https://www.youtube.com/embed/xThEFb0CI2c?si=F43_Or3ePMf5EBl3&start=10&amp;end=25" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+            picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe></center>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+
+    <div id="content3" class="material"> 
+        <h1> Formal Drinking Etiquette - Rule 2</h1>
+        <div class="inline-container">
+	    	<button class="number-block">2</button>
+            <div>Turn away from an elder and cover your mouth while drinking
+            </div>
+        </div>
+        <center><iframe id="vid-etiquette-1" width="560" height="315" 
+            src="https://www.youtube.com/embed/xThEFb0CI2c?si=F43_Or3ePMf5EBl3&start=40&amp;end=45" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+            picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe></center>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+
+    <div id="content4" class="material">
+        <h1> Formal Drinking Etiquette - Rule 3</h1>
+        <div class="inline-container">
+	    	<button class="number-block">3</button>
+            <div>Hold the glass/bottle in the appropriate position
+            </div>
+        </div>
+        <center><iframe id="vid-etiquette-1" width="560" height="315" 
+            src="https://www.youtube.com/embed/xThEFb0CI2c?si=F43_Or3ePMf5EBl3&start=29&amp;end=39" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+            picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe></center>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+
+
+{% endblock %}

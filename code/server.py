@@ -68,7 +68,20 @@ user_quiz_data = [
 
 num_of_questions = 4
 
-
+content_etiquette = [
+   {
+      "lesson_id":"1"
+   },
+   {
+      "lesson_id":"2"
+   },
+   {
+      "lesson_id":"3"
+   },
+   {
+      "lesson_id":"4"
+   }
+]
 
 
 # ROUTES
@@ -83,7 +96,7 @@ def learn_culture(lesson):
 
 @app.route('/learn_etiquette/<int:lesson>')
 def learn_etiquette(lesson):
-    return render_template('learn_etiquette.html', lesson=lesson) 
+   return render_template('learn_etiquette.html', lesson=lesson) 
 
 @app.route('/learn_games/<int:lesson>')
 def learn_games(lesson):
