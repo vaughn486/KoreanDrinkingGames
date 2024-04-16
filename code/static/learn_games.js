@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var currentContent = lesson.id;
-    console.log("Current content loaded:", currentContent);
+    var pageName = "games" + currentContent;
+    logPageEntry(pageName);
 
 
     $(".material").hide(); // Hide all content initially
@@ -39,6 +40,8 @@ $(document).ready(function(){
             success: function(data) {
                 console.log("success: ", data)
                 if (!data.error) {
+                    pageName = "games" + lessonId;
+                    logPageEntry(pageName);
                     updatePageContent(data);
                     window.history.pushState(null, null, "/learn_games/" + lessonId);
                 } else {
@@ -58,4 +61,18 @@ $(document).ready(function(){
         $(".material").hide();  // Hide all content sections
         contentDiv.show();  // Show only the current content section
     }
+
+    function logPageEntry(page) {
+        $.ajax({
+            url: '/enter_page/' + page,
+            method: 'GET',
+            success: function(response) {
+                console.log('Page entry time logged:', response.last_entry_time);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error logging page entry:', error);
+            }
+        });
+    }
+
 })
