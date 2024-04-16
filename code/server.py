@@ -83,6 +83,19 @@ content_etiquette = [
    }
 ]
 
+content_games = [
+    {
+        'id': 1,
+        'title': 'Nunchi Game (눈치게임)',
+        'description': 'Everyone begins shouting out numbers starting from 1 and going in order until the final person has said a number.'
+    },
+    {
+        'id': 2,
+        'title': 'Sam-Yuk-Gu (3-6-9) 삼–육–구',
+        'description': 'At the beginning of each round, everyone chants Sam-Yuk-Gu 4x. Each player says one number counting up, going in a circle, but for each instance of a digit of 3, 6 or 9 you have to clap.'
+    }
+]
+
 
 # ROUTES
 
@@ -98,9 +111,19 @@ def learn_culture(lesson):
 def learn_etiquette(lesson):
    return render_template('learn_etiquette.html', lesson=lesson) 
 
+@app.route('/api/learn_games/<int:lesson>')
+def api_learn_games(lesson):
+    if 1 <= lesson <= len(content_games):
+        lesson_data = content_games[lesson - 1]  # Fetch the lesson data
+        return jsonify(lesson_data)  # Return data as JSON
+    else:
+        return jsonify({'error': 'Lesson not found'}), 404
+    
 @app.route('/learn_games/<int:lesson>')
 def learn_games(lesson):
-    return render_template('learn_games.html', lesson=lesson) 
+    print("Content being passed:", content_games[lesson - 1])
+    return render_template('learn_games.html', lesson=content_games[lesson-1]) 
+
 
 @app.route('/quiz')
 def quiz():

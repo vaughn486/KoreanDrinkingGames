@@ -1,4 +1,63 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_games.js') }}"></script>
+
+<script>
+    var lesson = {{ lesson | tojson | safe }};
+</script>
+
+<div id="content1" class="material">
+    <h2>{{ lesson.title }}</h2>
+    <h5>{{ lesson.description }}</h5>
+    <p>Losing Scenarios:</p>
+    <div class="video-slide">
+        <div class="video-container">
+            <p>2 players say same number at same time, drink!</p>
+            <iframe id="vid-etiquette-1" width="400" height = "250"  
+            src="https://www.youtube.com/embed/DyMlTCcNJTQ?si=w0KuBO2EjtGLGyj9&start=110&amp;end=120" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+                picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class = "video-container">
+            <p>Player is last to say the number, player drinks!</p>
+            <iframe id="vid-games-2" width="400" height = "250"
+                src="https://www.youtube.com/embed/DyMlTCcNJTQ?si=w0KuBO2EjtGLGyj9&start=75&amp;end=80" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+                picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <button class="back">Back</button>
+    <button class="next">Next</button>
+</div>
+
+<div id="content2" class="material">
+    <h2>{{ lesson.title }}</h2>
+    <h5>{{ lesson.description }}</h5>
+    <p>Losing Scenarios:</p>
+    <center><iframe id="vid-etiquette-1" width="560" height="315" 
+        src="https://www.youtube.com/embed/sSyhr4ON6W4?si=oVli3XhjpRZEQOpv&start=385&amp;end=400" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+        picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen></iframe>
+    </center>
+    <center>Drink if you speak instead of clapping (or vice versa) Should be: 21-22-clap-24</center>
+    <button class="back">Back</button>
+    <button class="next">Next</button>
+</div>
+
+
 {% endblock %}

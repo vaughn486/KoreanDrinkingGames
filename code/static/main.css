@@ -42,3 +42,14 @@
     display: flex;
     align-items:center;
 }
+
+.video-slide {
+    display: flex;        
+    justify-content: center; 
+    align-items: center; 
+    gap: 100px;          
+}
+
+.video-container {
+    text-align: center;   
+}
