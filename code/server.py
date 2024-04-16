@@ -5,6 +5,7 @@ from flask import Markup
 app = Flask(__name__)
 
 import re
+from datetime import datetime
 
 # DATA
 
@@ -95,7 +96,7 @@ content_games = [
         'description': 'At the beginning of each round, everyone chants Sam-Yuk-Gu 4x. Each player says one number counting up, going in a circle, but for each instance of a digit of 3, 6 or 9 you have to clap.'
     }
 ]
-
+page_entry_times = {}
 
 # ROUTES
 
@@ -114,8 +115,8 @@ def learn_etiquette(lesson):
 @app.route('/api/learn_games/<int:lesson>')
 def api_learn_games(lesson):
     if 1 <= lesson <= len(content_games):
-        lesson_data = content_games[lesson - 1]  # Fetch the lesson data
-        return jsonify(lesson_data)  # Return data as JSON
+        lesson_data = content_games[lesson - 1]  
+        return jsonify(lesson_data)
     else:
         return jsonify({'error': 'Lesson not found'}), 404
     
@@ -123,6 +124,17 @@ def api_learn_games(lesson):
 def learn_games(lesson):
     print("Content being passed:", content_games[lesson - 1])
     return render_template('learn_games.html', lesson=content_games[lesson-1]) 
+
+@app.route('/enter_page/<page_name>', methods=['GET'])
+def enter_page(page_name):
+    # Record the current time as the last entry time for the page
+    page_entry_times[page_name] = datetime.now().isoformat()
+    print(page_entry_times)
+    # Return a response with the entry time
+    return jsonify({
+        'page_name': page_name,
+        'last_entry_time': page_entry_times[page_name]
+    })
 
 
 @app.route('/quiz')
