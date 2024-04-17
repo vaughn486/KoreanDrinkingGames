@@ -3,14 +3,14 @@
 {% block content %}
     <script type="text/javascript" src="{{ url_for('static', filename = 'learn_etiquette.js') }}"></script>
     <script>
-        var lesson= {{ lesson }};
+        var lesson = {{ lesson | tojson | safe }};
         
     </script>
 
 
 
     <div id="content1" class="material">
-        <h1> Formal Drinking Etiquette - Summary</h1>
+        <h2>{{ lesson.title }}</h2>
         <div>
             In Korean culture, there is a strong emphasis on 
             <b>respecting elders or those in higher positions</b>, 
@@ -61,7 +61,7 @@
     </div>
 
     <div id="content2" class="material">
-        <h1> Formal Drinking Etiquette - Rule 1</h1>
+        <h2>{{ lesson.title }}</h2>
         <div class="inline-container">
 	    	<button class="number-block">1</button>
             <div>Avoid pouring your own drink, and ensure others always have their glass filled
@@ -80,7 +80,7 @@
     </div>
 
     <div id="content3" class="material"> 
-        <h1> Formal Drinking Etiquette - Rule 2</h1>
+        <h2>{{ lesson.title }}</h2>
         <div class="inline-container">
 	    	<button class="number-block">2</button>
             <div>Turn away from an elder and cover your mouth while drinking
@@ -99,7 +99,7 @@
     </div>
 
     <div id="content4" class="material">
-        <h1> Formal Drinking Etiquette - Rule 3</h1>
+        <h2>{{ lesson.title }}</h2>
         <div class="inline-container">
 	    	<button class="number-block">3</button>
             <div>Hold the glass/bottle in the appropriate position
