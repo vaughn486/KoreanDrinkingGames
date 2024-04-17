@@ -19,30 +19,58 @@ from datetime import datetime
 question = [
    {
       "id": "1",
-      "q": "Question 1",
-      "media": "",
-      "a": ["Correct", "Incorrect"],
+      "q": "건배 (geonbae)",
+      "media": "[media test]",
+      "a": ["Cheers", "Soju + Beer Mix"],
       "a_correct": 0
    },
    {
       "id": "2",
-      "q": "Question 2",
+      "q": "In the game Sam-Yuk-Gu, player 3 clapped once for the number 33:",
       "media": "",
-      "a": ["Correct", "Incorrect"],
-      "a_correct": 0
+      "a": ["Correct", "Drink!"],
+      "a_correct": 1
    },
    {
       "id": "3",
-      "q": "Question 3",
+      "q": "A man and his grandson are drinking soju. The grandson is feeling a bit woozy and says he’d like to stop drinking. Is this proper etiquette?",
       "media": "",
-      "a": ["Correct", "Incorrect"],
+      "a": ["Correct Test", "Incorrect Test"],
       "a_correct": 0
    },
    {
       "id": "4",
-      "q": "Question 4",
+      "q": "Sam says 1. Both Elaine and Grace say 2. Who drinks?",
       "media": "",
-      "a": ["Correct", "Incorrect"],
+      "a": ["Elaine", "Elaine + Grace"],
+      "a_correct": 1
+   },
+   {
+      "id": "5",
+      "q": "SoMaek has how many shots of soju?",
+      "media": "",
+      "a": ["1", "2"],
+      "a_correct": 0
+   },
+   {
+      "id": "6",
+      "q": "In the game Sam-Yuk-Gu:",
+      "media": "",
+      "a": ["Correct Test", "Incorrect Test"],
+      "a_correct": 0
+   },
+   {
+      "id": "7",
+      "q": "What is the proper way a new hire should pour a VP’s drink?",
+      "media": "",
+      "a": ["Correct Test", "Incorrect Test"],
+      "a_correct": 0
+   },
+   {
+      "id": "8",
+      "q": "In the Nunchi Game:",
+      "media": "",
+      "a": ["Correct Test", "Incorrect Test"],
       "a_correct": 0
    }
 ]
@@ -201,21 +229,21 @@ def quiz():
    return render_template('quiz.html')
 
 # data for quiz pages is sent here
-@app.route('/quiz_data/<int:quiz_id>')
-def quiz_data(quiz_id):
-   global current_quiz_question
-   if 1 <= quiz_id <= len(question):
-      question_data = question[quiz_id-1]
-      current_quiz_question = quiz_id  
-      return jsonify(question_data)
-   else:
-      return jsonify({'Error': 'Question not found'}), 404
+# @app.route('/quiz_data/<int:quiz_id>')
+# def quiz_data(quiz_id):
+#    global current_quiz_question
+#    if 1 <= quiz_id <= len(question):
+#       question_data = question[quiz_id-1]
+#       current_quiz_question = quiz_id  
+#       return jsonify(question_data)
+#    else:
+#       return jsonify({'Error': 'Question not found'}), 404
 
 # returns current quiz question
-@app.route('/get_current_question')
-def get_current_id():
-    global current_quiz_question
-    return jsonify({'current_quiz_question': current_quiz_question})
+# @app.route('/get_current_question')
+# def get_current_id():
+#     global current_quiz_question
+#     return jsonify({'current_quiz_question': current_quiz_question})
 
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])

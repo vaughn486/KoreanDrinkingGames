@@ -10,8 +10,15 @@
 
 
 <div class="row">
-    question: {{object.q}}
+    {{object.q}}
 </div>
+
+
+<!-- where media is held -->
+<div class="row">
+    {{object.media}}
+</div>
+
 
 <form method="post" action="">
     {% for idx, answer in enumerate(object.a) %}
