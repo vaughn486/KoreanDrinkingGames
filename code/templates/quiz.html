@@ -13,19 +13,11 @@
     question: {{object.q}}
 </div>
 
-<div class="row">
-    answer: {{object.a}}
-</div>
-
-<div class="row">
-    link: {{next_link}}
-</div>
-
-<div id="buttonContainer">
-    <button id="testbutton">
-        test button!
-    </button>
-</div>
+<form method="post" action="">
+    {% for idx, answer in enumerate(object.a) %}
+    <button type="submit" name="answer" value="{{ answer }}">{{ answer }}</button>
+    {% endfor %}
+</form>
 
 
 {% endblock %}

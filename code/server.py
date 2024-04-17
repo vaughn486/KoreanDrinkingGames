@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 from flask import render_template
 from flask import Response, request, jsonify
 from flask import Markup
@@ -22,32 +22,33 @@ question = [
       "q": "Question 1",
       "media": "",
       "a": ["Correct", "Incorrect"],
-      "a_correct": 1
+      "a_correct": 0
    },
    {
       "id": "2",
       "q": "Question 2",
       "media": "",
       "a": ["Correct", "Incorrect"],
-      "a_correct": 1
+      "a_correct": 0
    },
    {
       "id": "3",
       "q": "Question 3",
       "media": "",
       "a": ["Correct", "Incorrect"],
-      "a_correct": 1
+      "a_correct": 0
    },
    {
       "id": "4",
       "q": "Question 4",
       "media": "",
       "a": ["Correct", "Incorrect"],
-      "a_correct": 1
+      "a_correct": 0
    }
 ]
 
 current_quiz_question = 0
+correct_answers_count = 0
 
 #user's quiz selections stored here
 user_quiz_data = [
@@ -217,22 +218,35 @@ def get_current_id():
     return jsonify({'current_quiz_question': current_quiz_question})
 
 # display quiz question #
-@app.route('/quiz/<int:quiz_id>')
+@app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
 def pageview(quiz_id):
-    global current_quiz_question
+    global current_quiz_question, correct_answers_count
+    if quiz_id == 1:
+        correct_answers_count = 0 
+   
+    current_quiz_question = quiz_id
+    
     if quiz_id > len(question):
-        return "Question not found", 404
-    else:
-        current_quiz_question = quiz_id 
-        object = question[quiz_id-1]   # -1 to compensate for indexing starting at 0
-        quiz_id = quiz_id+1
-        next_link = "/quiz/" + str(quiz_id) #link to next quiz question
-        return render_template('quiz.html', object=object, user_quiz_data=user_quiz_data, next_link=next_link, question=question)
+      return redirect('/quizresult')
+    question_data = question[quiz_id - 1]
+    print("get", quiz_id)
+
+    if request.method == 'POST':
+        selected_answer = request.form['answer']
+        if selected_answer == question_data['a'][question_data['a_correct']]:
+            correct_answers_count += 1
+            print(quiz_id, correct_answers_count)
+        
+        if quiz_id > len(question):
+            return redirect('/quizresult')
+        else:
+            return redirect(f'/quiz/{quiz_id+1}')
+    return render_template('quiz.html', object=question_data, next_link=f'/quiz/{quiz_id + 1}', enumerate=enumerate)
 
 
 @app.route('/quizresult')
 def quizresult():
-   return render_template('quizresult.html')   
+   return render_template('quizresult.html', correct_answers = correct_answers_count, total_questions=len(question))   
 
 
 
