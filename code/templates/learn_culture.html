@@ -1,4 +1,155 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'learn_culture.js') }}"></script>
+    <script>
+        var lesson = {{ lesson | tojson | safe }};
+        
+    </script>
+
+    <div id="content1" class="material">
+        <h2>{{ lesson.title }}</h2>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="left-container">
+                            <div class="header">Soju</div>
+                            <div class="description">
+                                ~16-20% ABV<br>
+                                Think watered-down vodka</div>
+                            <div class="image-container">
+                                <img src="https://131610149.cdn6.editmysite.com/uploads/1/3/1/6/131610149/s346694948735380391_p272_i1_w1400.jpeg" alt="soju" class="img-fluid"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center-container">
+                        <div class="left-container speak">
+                            <div class="header exact-text">Beer (Maek-Ju)
+                                <button class="speech"></button> 
+                            </div>
+                            <div class="description">
+                                ~5% ABV<br><br></div>
+                            <div class="image-container">
+                                <img src="https://file.mk.co.kr/meet/neds/2023/05/image_readtop_2023_403161_16850767015485390.jpg" alt="beer" class="img-fluid"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center-container">
+                        <div class="left-container">
+                            <div class="header">Somaek (Beer + Soju)</div>
+                            <div class="description">1 shot of Soju + Beer filled up to 3/4 of the cup</div>
+                            <div class="video-container">
+                                <iframe id="vid-culture-1" width="350" height = "200"  
+                                src="https://www.youtube.com/embed/IpHeIT1xXxw?si=jRV3h26LEleMkdd6&amp;start=36" 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    allow="accelerometer;clipboard-write; encrypted-media; gyroscope; 
+                                    picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <br>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+
+    <div id="content2" class="material">
+        <h2>{{ lesson.title }}</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="center-container">
+                    <div class="grey-box"><p>건배<br>(geonbae)</p></div>
+                <div class="padding-top">One-shot, or<br>bottoms up!</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="center-container">
+                    <div class="grey-box"><p>짠<br>(cheers!)</p></div>
+                <div class="padding-top">Cheers! (used in<br>more informal<br>settings)</div>
+                </div>
+            </div> 
+            <div class="col-md-6">
+                <div>
+                    <b>1) Koreans pour for one another </b> - if your glass is 
+                    empty, someone will pour you a drink<br><br>
+                    <b>2) Leave your glass half empty to refuse a drink </b> 
+                </div>
+            </div>
+                   
+        </div>
+        <br>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+
+    <div id="content3" class="material">
+        <h2>{{ lesson.title }}</h2>
+        <div>
+            A night out is done in rounds (each round is a "cha"). Korea has a culture of drinking - don't eat too much at the 1st<br>
+            round if you know there's more "cha's" to come<br>
+            Example of a night out: 
+        </div><br>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="left-container speak">
+                            <div class="header-font exact-text">1-cha ("il-cha")
+                                <button class="speech"></button> 
+                            </div>
+                            <div class="image-container">
+                                <img src="https://images.squarespace-cdn.com/content/v1/63cd549eb1c84b612a243dc2/c49ea4e4-31ac-4a0d-b4f9-01ee9080a212/wuju+korean+bbq+drinks.png" alt="1-ch" class="img-fluid"/>
+                            </div>
+                            <div class="description">1-cha (1st round) at a Korean <br> bbq restaurant with soju</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center-container">
+                        <div class="left-container speak">
+                            <div class="header-font exact-text">2-cha ("i-cha")
+                                <button class="speech"></button> 
+                            </div>
+                            <div class="image-container">
+                                <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjh1bijjSgvI4lGp9blSByzjchxoh20wbbT89IYdeDPQ&s" alt="2-cha" class="img-fluid"/>
+                            </div>
+                            <div class="description">2-cha (2nd round) at a<br> Pojangmacha aka Pocha restaurant with SoMaek and Kimchi Pancakes                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center-container">
+                        <div class="left-container speak">
+                            <div class="header-font exact-text">3-cha ("sam-cha")
+                                <button class="speech"></button> 
+                            </div>
+                            <div class="image-container">
+                                <img src= "https://storage.googleapis.com/koreaboo-cdn/24-29.jpg" alt="3-cha" class="img-fluid"/>
+                            </div>
+                            <div class="description">3-cha (3rd round) at Karaoke<br> with more drinks and tteok-bokki</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <br>
+        <button class="back">Back</button>
+        <button class="next">Next</button>
+    </div>
+</div>
+
+
 {% endblock %}

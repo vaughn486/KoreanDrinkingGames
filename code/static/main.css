@@ -28,6 +28,11 @@
 .center-container{
     text-align:center;
 }
+
+.left-container{
+    text-align:left;
+}
+
 .number-block{
     font-size:20px;
     font-weight:bold;
@@ -43,6 +48,12 @@
     align-items:center;
 }
 
+.header{
+    font-weight: bold;
+    font-size: 20px;
+    color: grey;
+}
+
 .video-slide {
     display: flex;        
     justify-content: center; 
@@ -50,6 +61,52 @@
     gap: 100px;          
 }
 
+h2 {
+    padding: 10px; /* Add 10 pixels of padding on all sides */
+}
+
 .video-container {
     text-align: center;   
+}
+
+.image-container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.description{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+}
+
+.grey-box {
+    background-color: rgb(239, 239, 239);
+    border: 2px solid grey;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.padding-top{
+    padding-top: 10px; 
+}
+
+.header-font{
+    font-size: 15px;
+}
+
+.speech {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTywV25UijwZeKCQOWF7XFvy35xg3YQWrGjEwyJR3yESw&s');
+    background-size: contain; 
+    width: 15px; 
+    height: 15px; 
+    border: none;
+    cursor: pointer; /* Sets cursor to pointer to indicate it's clickable */
 }

@@ -55,6 +55,25 @@ user_quiz_data = [
 ]
 
 
+content_culture = [
+   {
+      'id': 1,
+      'title': 'Korean Drinking Culture - Korean Drinks',
+      'last_accessed': None
+      
+   },
+   {
+      'id': 2,
+      'title': 'Korean Drinking Culture - Cheers + General Drinking Etiquette',
+      'last_accessed': None
+   },
+   {
+      'id': 3,
+      'title': 'Korean Drinking Culture - How to "cha"',
+      'last_accessed': None
+   }
+]
+
 content_etiquette = [
    {
       'id': 1,
@@ -99,9 +118,31 @@ page_entry_times = {}
 def homepage():
    return render_template('home.html')   
 
+@app.route('/api/learn_culture/<int:lesson>')
+def api_learn_culture(lesson):
+    if 1 <= lesson <= len(content_culture):
+        lesson_data = content_culture[lesson - 1]  # Fetch the lesson data
+        return jsonify(lesson_data)  # Return data as JSON
+    else:
+        return jsonify({'error': 'Lesson not found'}), 404
+
+# Route to handle the POST request and update last accessed time
+@app.route('/api/update_last_accessed_culture', methods=['POST'])
+def update_last_accessed_culture():
+    lesson_id = request.form.get('lesson_id')
+    lesson_id = int(lesson_id)
+    # Find the lesson with the given ID and update the last accessed time
+    for lesson in content_culture:
+        if lesson['id'] == lesson_id:
+            lesson['last_accessed'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            return jsonify({'success': True})
+    # If the lesson ID is not found
+    return jsonify({'error': 'Lesson ID not found'}), 404
+
 @app.route('/learn_culture/<int:lesson>')
 def learn_culture(lesson):
-    return render_template('learn_culture.html', lesson=lesson) 
+   print("Content being passed:", content_culture[lesson - 1])
+   return render_template('learn_culture.html', lesson=content_culture[lesson-1]) 
 
 @app.route('/api/learn_etiquette/<int:lesson>')
 def api_learn_etiquette(lesson):
