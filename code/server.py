@@ -18,56 +18,41 @@ from datetime import datetime
 question = [
    {
       "id": "1",
-      "q": "asghjoieajsgd",
+      "q": "Question 1",
       "media": "",
-      "a": ["weretygh", "yrterds", "wretry"],
+      "a": ["Correct", "Incorrect"],
       "a_correct": 1
    },
    {
       "id": "2",
-      "q": "wgrhifp;ovleas",
+      "q": "Question 2",
       "media": "",
-      "a": ["ytre", "waretyu", "iujhygrfed"],
-      "a_correct": 3
+      "a": ["Correct", "Incorrect"],
+      "a_correct": 1
    },
    {
       "id": "3",
-      "q": "qwaresty",
+      "q": "Question 3",
       "media": "",
-      "a": ["wearestryfy", "ikujyhtg", "ujyh5tg4r"],
-      "a_correct": 2
+      "a": ["Correct", "Incorrect"],
+      "a_correct": 1
    },
    {
       "id": "4",
-      "q": "rethgjh",
+      "q": "Question 4",
       "media": "",
-      "a": ["retyuy", "kujhygtf", "arestdyf"],
+      "a": ["Correct", "Incorrect"],
       "a_correct": 1
    }
 ]
+
+current_quiz_question = 0
 
 #user's quiz selections stored here
-#a is their selection
 user_quiz_data = [
-   {
-      "id": "1",
-      "a": ""
-   },
-   {
-      "id": "2",
-      "a": ""
-   },
-   {
-      "id": "3",
-      "a": ""
-   },
-   {
-      "id": "4",
-      "a": ""
-   }
+   
 ]
 
-num_of_questions = 4
 
 content_etiquette = [
    {
@@ -141,16 +126,35 @@ def enter_page(page_name):
 def quiz():
    return render_template('quiz.html')
 
+# data for quiz pages is sent here
+@app.route('/quiz_data/<int:quiz_id>')
+def quiz_data(quiz_id):
+   global current_quiz_question
+   if 1 <= quiz_id <= len(question):
+      question_data = question[quiz_id-1]
+      current_quiz_question = quiz_id  
+      return jsonify(question_data)
+   else:
+      return jsonify({'Error': 'Question not found'}), 404
+
+# returns current quiz question
+@app.route('/get_current_question')
+def get_current_id():
+    global current_quiz_question
+    return jsonify({'current_quiz_question': current_quiz_question})
+
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>')
 def pageview(quiz_id):
-    if quiz_id > num_of_questions:
+    global current_quiz_question
+    if quiz_id > len(question):
         return "Question not found", 404
     else:
+        current_quiz_question = quiz_id 
         object = question[quiz_id-1]   # -1 to compensate for indexing starting at 0
         quiz_id = quiz_id+1
         next_link = "/quiz/" + str(quiz_id) #link to next quiz question
-        return render_template('quiz.html', object=object, user_quiz_data=user_quiz_data, next_link=next_link)
+        return render_template('quiz.html', object=object, user_quiz_data=user_quiz_data, next_link=next_link, question=question)
 
 
 @app.route('/quizresult')

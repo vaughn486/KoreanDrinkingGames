@@ -2,7 +2,9 @@
 
 {% block content %}
 
-QUIZ PAGE
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+
+
 
 <!-- access parts of the question using object.___ -->
 
@@ -17,6 +19,12 @@ QUIZ PAGE
 
 <div class="row">
     link: {{next_link}}
+</div>
+
+<div id="buttonContainer">
+    <button id="testbutton">
+        test button!
+    </button>
 </div>
 
 
