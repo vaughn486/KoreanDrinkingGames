@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, url_for
 from flask import render_template
 from flask import Response, request, jsonify
 from flask import Markup
@@ -226,24 +226,9 @@ def enter_page(page_name):
 
 @app.route('/quiz')
 def quiz():
-   return render_template('quiz.html')
-
-# data for quiz pages is sent here
-# @app.route('/quiz_data/<int:quiz_id>')
-# def quiz_data(quiz_id):
-#    global current_quiz_question
-#    if 1 <= quiz_id <= len(question):
-#       question_data = question[quiz_id-1]
-#       current_quiz_question = quiz_id  
-#       return jsonify(question_data)
-#    else:
-#       return jsonify({'Error': 'Question not found'}), 404
-
-# returns current quiz question
-# @app.route('/get_current_question')
-# def get_current_id():
-#     global current_quiz_question
-#     return jsonify({'current_quiz_question': current_quiz_question})
+   global correct_answers_count
+   correct_answers_count = 0
+   return render_template('quiz_home.html')
 
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
