@@ -145,10 +145,14 @@ page_entry_times = {}
 
 @app.route('/')
 def homepage():
+   global correct_answers_count
+   correct_answers_count = 0
    return render_template('home.html')   
 
 @app.route('/api/learn_culture/<int:lesson>')
 def api_learn_culture(lesson):
+    global correct_answers_count
+    correct_answers_count = 0
     if 1 <= lesson <= len(content_culture):
         lesson_data = content_culture[lesson - 1]  # Fetch the lesson data
         return jsonify(lesson_data)  # Return data as JSON
@@ -170,11 +174,15 @@ def update_last_accessed_culture():
 
 @app.route('/learn_culture/<int:lesson>')
 def learn_culture(lesson):
+   global correct_answers_count
+   correct_answers_count = 0
    print("Content being passed:", content_culture[lesson - 1])
    return render_template('learn_culture.html', lesson=content_culture[lesson-1]) 
 
 @app.route('/api/learn_etiquette/<int:lesson>')
 def api_learn_etiquette(lesson):
+    global correct_answers_count
+    correct_answers_count = 0
     if 1 <= lesson <= len(content_etiquette):
         lesson_data = content_etiquette[lesson - 1]  # Fetch the lesson data
         return jsonify(lesson_data)  # Return data as JSON
@@ -196,11 +204,15 @@ def update_last_accessed_etiquette():
 
 @app.route('/learn_etiquette/<int:lesson>')
 def learn_etiquette(lesson):
+   global correct_answers_count
+   correct_answers_count = 0
    print("Content being passed:", content_etiquette[lesson - 1])
    return render_template('learn_etiquette.html', lesson=content_etiquette[lesson-1]) 
 
 @app.route('/api/learn_games/<int:lesson>')
 def api_learn_games(lesson):
+    global correct_answers_count
+    correct_answers_count = 0
     if 1 <= lesson <= len(content_games):
         lesson_data = content_games[lesson - 1]  
         return jsonify(lesson_data)
@@ -209,6 +221,8 @@ def api_learn_games(lesson):
     
 @app.route('/learn_games/<int:lesson>')
 def learn_games(lesson):
+    global correct_answers_count
+    correct_answers_count = 0
     print("Content being passed:", content_games[lesson - 1])
     return render_template('learn_games.html', lesson=content_games[lesson-1]) 
 
@@ -233,28 +247,28 @@ def quiz():
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
 def pageview(quiz_id):
-    global current_quiz_question, correct_answers_count
-    if quiz_id == 1:
-        correct_answers_count = 0 
+   global current_quiz_question, correct_answers_count
+   if quiz_id == 1:
+      correct_answers_count = 0 
    
-    current_quiz_question = quiz_id
+   current_quiz_question = quiz_id
     
-    if quiz_id > len(question):
+   if quiz_id > len(question):
       return redirect('/quizresult')
-    question_data = question[quiz_id - 1]
-    print("get", quiz_id)
+   question_data = question[quiz_id - 1]
+   print("get", quiz_id)
 
-    if request.method == 'POST':
-        selected_answer = request.form['answer']
-        if selected_answer == question_data['a'][question_data['a_correct']]:
-            correct_answers_count += 1
-            print(quiz_id, correct_answers_count)
+   if request.method == 'POST':
+      selected_answer = request.form['answer']
+      if selected_answer == question_data['a'][question_data['a_correct']]:
+         correct_answers_count += 1
+         print(quiz_id, correct_answers_count)
         
-        if quiz_id > len(question):
-            return redirect('/quizresult')
-        else:
-            return redirect(f'/quiz/{quiz_id+1}')
-    return render_template('quiz.html', object=question_data, next_link=f'/quiz/{quiz_id + 1}', enumerate=enumerate)
+      if quiz_id > len(question):
+         return redirect('/quizresult')
+      else:
+         return redirect(f'/quiz/{quiz_id+1}')
+   return render_template('quiz.html', object=question_data, next_link=f'/quiz/{quiz_id + 1}', enumerate=enumerate)
 
 
 @app.route('/quizresult')
