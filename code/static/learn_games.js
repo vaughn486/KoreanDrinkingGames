@@ -12,7 +12,7 @@ $(document).ready(function(){
         $("#content" + currentContent).hide();
         currentContent++;
         if (currentContent == 3){
-            window.location.href = '/quiz/1';
+            window.location.href = '/quiz';
         } 
         $("#content" + currentContent).show();
         // Update URL

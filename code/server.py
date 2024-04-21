@@ -75,12 +75,33 @@ question = [
    }
 ]
 
-current_quiz_question = 0
 correct_answers_count = 0
 
 #user's quiz selections stored here
 user_quiz_data = [
    
+]
+
+
+content = [
+    {
+        'id': 1,
+        'name': 'Korean Drinking Culture',
+        'explanation': 'Learn about different types of drinks, how to cheers, and how to "cha". ',
+        'link': '/learn_culture/1'
+    },
+    {
+        'id': 2,
+        'name': 'Korean Drinking Etiquette',
+        'explanation': 'Learn about basic Korean drinking etiquette, which includes how to pour and drink alcohol. ',
+        'link': '/learn_etiquette/1'
+    },
+    {
+        'id': 3,
+        'name': 'Korean Drinking Games',
+        'explanation': 'Learn about two popular Korean drinking games: Nunchi and Sam-Yuk-Gu.',
+        'link': '/learn_games/1'
+    }
 ]
 
 
@@ -247,34 +268,42 @@ def quiz():
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
 def pageview(quiz_id):
-   global current_quiz_question, correct_answers_count
+   global correct_answers_count
    if quiz_id == 1:
       correct_answers_count = 0 
-   
-   current_quiz_question = quiz_id
-    
+       
    if quiz_id > len(question):
       return redirect('/quizresult')
+   
    question_data = question[quiz_id - 1]
-   print("get", quiz_id)
+   # print("get", quiz_id)
 
+   # handles user's choice
    if request.method == 'POST':
       selected_answer = request.form['answer']
       if selected_answer == question_data['a'][question_data['a_correct']]:
          correct_answers_count += 1
          print(quiz_id, correct_answers_count)
         
+      # handles reaching end of quiz / advancing to next question
       if quiz_id > len(question):
          return redirect('/quizresult')
       else:
          return redirect(f'/quiz/{quiz_id+1}')
-   return render_template('quiz.html', object=question_data, next_link=f'/quiz/{quiz_id + 1}', enumerate=enumerate)
+
+   # renders current question 
+   return render_template('quiz.html', object=question_data, enumerate=enumerate)
 
 
 @app.route('/quizresult')
 def quizresult():
    return render_template('quizresult.html', correct_answers = correct_answers_count, total_questions=len(question))   
 
+@app.route('/learn_home/<int:id>')
+def learn_home(id):
+   # sending info to the learn home page
+   object = content[id-1]
+   return render_template('learn_home.html', object=object)
 
 
 # FUNCTIONS
