@@ -8,6 +8,9 @@
 
 <!-- access parts of the question using object.___ -->
 
+<div class = "quiz-title">
+    Question {{quiz_no}}
+</div>
 
 <div class="row">
     {{object.q}}
@@ -20,7 +23,7 @@
 </div>
 
 
-<form method="post" action="">
+<form class = "row" method="post" action="">
     {% for idx, answer in enumerate(object.a) %}
     <button type="submit" name="answer" value="{{ answer }}">{{ answer }}</button>
     {% endfor %}

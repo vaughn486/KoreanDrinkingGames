@@ -292,7 +292,7 @@ def pageview(quiz_id):
          return redirect(f'/quiz/{quiz_id+1}')
 
    # renders current question 
-   return render_template('quiz.html', object=question_data, enumerate=enumerate, current_page='quiz')
+   return render_template('quiz.html', quiz_no = quiz_id, object=question_data, enumerate=enumerate, current_page='quiz')
 
 
 @app.route('/quizresult')
