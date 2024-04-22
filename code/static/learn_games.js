@@ -56,7 +56,7 @@ $(document).ready(function(){
     function updatePageContent(data) {
         var contentDiv = $("#content" + currentContent);
         contentDiv.find("h2").text(data.title);
-        contentDiv.find("h5").text(data.description);
+        contentDiv.find("p").text(data.description);
 
         $(".material").hide();  // Hide all content sections
         contentDiv.show();  // Show only the current content section

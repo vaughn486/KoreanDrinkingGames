@@ -28,15 +28,44 @@
     background-color: lightblue; /* Active color - doesn't change on hover */
     border-radius: 10px; /* Keep the rounded corners if needed */
 }
+body {
+    background-color: rgb(240,229, 220);
+}
+.learn-button, .quiz-button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    color: white;
+    width: 180px;
+    height: 150px; 
+    border-radius: 10px; 
+    margin: 10px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
 
+.quiz-button{
+    background-color: darkgrey;
+}
+
+.link:hover{
+    color:white;
+    text-decoration: none;
+}
 .home-text{
     margin-top: 30px; 
+    font-size: 20px;
+    color: rgb(96, 96, 96);
     text-align: center;
     width: 100%;
 }
 .home-title{
     font-weight: bold;
-    font-size: 26px; 
+    font-size: 40px; 
+}
+.learning-title{
+    color: rgb(96, 96, 96);
 }
 
 .home-image-container {
