@@ -168,7 +168,7 @@ page_entry_times = {}
 def homepage():
    global correct_answers_count
    correct_answers_count = 0
-   return render_template('home.html')   
+   return render_template('home.html', current_page='home')   
 
 @app.route('/api/learn_culture/<int:lesson>')
 def api_learn_culture(lesson):
@@ -198,7 +198,7 @@ def learn_culture(lesson):
    global correct_answers_count
    correct_answers_count = 0
    print("Content being passed:", content_culture[lesson - 1])
-   return render_template('learn_culture.html', lesson=content_culture[lesson-1]) 
+   return render_template('learn_culture.html', lesson=content_culture[lesson-1], current_page='learning_culture') 
 
 @app.route('/api/learn_etiquette/<int:lesson>')
 def api_learn_etiquette(lesson):
@@ -228,7 +228,7 @@ def learn_etiquette(lesson):
    global correct_answers_count
    correct_answers_count = 0
    print("Content being passed:", content_etiquette[lesson - 1])
-   return render_template('learn_etiquette.html', lesson=content_etiquette[lesson-1]) 
+   return render_template('learn_etiquette.html', lesson=content_etiquette[lesson-1], current_page='learning_etiquette') 
 
 @app.route('/api/learn_games/<int:lesson>')
 def api_learn_games(lesson):
@@ -245,7 +245,7 @@ def learn_games(lesson):
     global correct_answers_count
     correct_answers_count = 0
     print("Content being passed:", content_games[lesson - 1])
-    return render_template('learn_games.html', lesson=content_games[lesson-1]) 
+    return render_template('learn_games.html', lesson=content_games[lesson-1], current_page='learning_games') 
 
 @app.route('/enter_page/<page_name>', methods=['GET'])
 def enter_page(page_name):
@@ -263,7 +263,7 @@ def enter_page(page_name):
 def quiz():
    global correct_answers_count
    correct_answers_count = 0
-   return render_template('quiz_home.html')
+   return render_template('quiz_home.html', current_page='quiz')
 
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
@@ -292,12 +292,12 @@ def pageview(quiz_id):
          return redirect(f'/quiz/{quiz_id+1}')
 
    # renders current question 
-   return render_template('quiz.html', object=question_data, enumerate=enumerate)
+   return render_template('quiz.html', object=question_data, enumerate=enumerate, current_page='quiz')
 
 
 @app.route('/quizresult')
 def quizresult():
-   return render_template('quizresult.html', correct_answers = correct_answers_count, total_questions=len(question))   
+   return render_template('quizresult.html', correct_answers = correct_answers_count, total_questions=len(question), current_page='quiz')   
 
 @app.route('/learn_home/<int:id>')
 def learn_home(id):

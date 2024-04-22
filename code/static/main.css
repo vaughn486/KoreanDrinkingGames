@@ -1,9 +1,13 @@
+
 .container-fluid{
-    padding: 10px;
-    background-color: rgb(236, 236, 236);
+    background-color: white;
+    padding:10px;
+    
 }
+
 .navbar{
     padding: 0px;
+    border-bottom: 1px solid lightgray;
 }
 .navbar-nav {
     width: 100%; /* Ensure the nav occupies the full width of its container */
@@ -13,6 +17,18 @@
     flex: 1; /* Each nav item will grow equally */
     text-align: center; /* Center-align the text inside each nav item */
 }
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #f7f7f7; /* This is a light gray color. Adjust the color code as needed. */
+    border-radius: 10px
+}
+
+.navbar-nav .nav-item .nav-link.active, 
+.navbar-nav .nav-item .nav-link:hover.active {
+    background-color: lightblue; /* Active color - doesn't change on hover */
+    border-radius: 10px; /* Keep the rounded corners if needed */
+}
+
 .home-text{
     margin-top: 30px; 
     text-align: center;
@@ -22,7 +38,31 @@
     font-weight: bold;
     font-size: 26px; 
 }
-.button-container{
+
+.home-image-container {
+    position: relative; /* This makes it a container for absolute children */
+    width: 100%; /* This makes it take up the full width */
+    height: 90vh; /* Adjust height as needed, vh units make it based on the viewport height */
+    text-align: center; /* To center text horizontally */
+    color: white; /* Choose a text color that contrasts well with your image */
+  }
+  
+  .home-image-container img {
+    width: 100%; /* Makes the image take up the full container width */
+    height: 100%; /* Makes the image take up the full container height */
+    object-fit: cover; /* Ensures the image covers the area without being stretched */
+  }
+  
+  .centered-text {
+    position: absolute; /* Positions the text absolutely within its parent */
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Adjusts the exact centering of the element */
+    color: white; /* Text color, change as necessary */
+    /* Add more styling for your text as needed */
+  }
+
+.reg-button-container{
     padding: 20px;
 }
 .center-container{
@@ -110,3 +150,55 @@ h2 {
     border: none;
     cursor: pointer; /* Sets cursor to pointer to indicate it's clickable */
 }
+
+.button-container {
+    position: fixed; /* Keeps the buttons at the same spot even when scrolling */
+    bottom: 10px; /* Distance from the bottom of the viewport */
+    left: 50%; /* Centers the container */
+    transform: translateX(-50%); /* Aligns center of the container to the center of the page */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+.back {
+    background-color: lightgray;
+    border-radius: 10px;
+    border: 0px solid white;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:100px;
+    cursor: pointer;
+
+}
+
+.next {
+    background-color: lightgray;
+    border-radius: 10px;
+    border: 0px solid white;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:100px;
+    cursor: pointer;
+
+}
+
+.back:hover {
+    background-color: lightblue; /* Change color when hovered */
+}
+.next:hover {
+    background-color: lightblue; /* Change color when hovered */
+}
+
+.back:active {
+    
+    outline:2px solid lightblue;
+}
+
+.next:active {
+    
+    outline:2px solid lightblue;
+}
+
