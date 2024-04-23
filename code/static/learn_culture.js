@@ -35,8 +35,14 @@ $(document).ready(function(){
     $(".speech").click(function(){
         var toSpeak = $(this).closest('.speak');
         var text = toSpeak.find('.exact-text').text();
-        var textToSpeak = extractWord(text);
+        var textToSpeak;
+        if (extractWord(text) != ""){
+            textToSpeak = extractWord(text); }
+        else{
+            textToSpeak = text; 
+        }
         speakText(textToSpeak);
+        console.log(textToSpeak); 
     });
 
     function extractWord(text){

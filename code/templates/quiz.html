@@ -19,7 +19,11 @@
 
 <!-- where media is held -->
 <div class="row">
-    {{object.media}}
+    <!-- {{object.media}} -->
+    {% if media_template %}
+        {% include media_template %}
+    
+    {% endif %}
 </div>
 
 

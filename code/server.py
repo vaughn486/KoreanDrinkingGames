@@ -19,15 +19,15 @@ from datetime import datetime
 question = [
    {
       "id": "1",
-      "q": "건배 (geonbae)",
-      "media": "[media test]",
+      "q": "",
+      "media": "media_geonbae.html",
       "a": ["Cheers", "Soju + Beer Mix"],
       "a_correct": 0
    },
    {
       "id": "2",
       "q": "In the game Sam-Yuk-Gu, player 3 clapped once for the number 33:",
-      "media": "",
+      "media": "media_samyukgu.html",
       "a": ["Correct", "Drink!"],
       "a_correct": 1
    },
@@ -40,8 +40,8 @@ question = [
    },
    {
       "id": "4",
-      "q": "Sam says 1. Both Elaine and Grace say 2. Who drinks?",
-      "media": "",
+      "q": "In the Nunchi Game:",
+      "media": "media_nunchigame.html",
       "a": ["Elaine", "Elaine + Grace"],
       "a_correct": 1
    },
@@ -276,6 +276,7 @@ def pageview(quiz_id):
       return redirect('/quizresult')
    
    question_data = question[quiz_id - 1]
+   media_template = question_data['media']#added
    # print("get", quiz_id)
 
    # handles user's choice
@@ -292,7 +293,7 @@ def pageview(quiz_id):
          return redirect(f'/quiz/{quiz_id+1}')
 
    # renders current question 
-   return render_template('quiz.html', quiz_no = quiz_id, object=question_data, enumerate=enumerate, current_page='quiz')
+   return render_template('quiz.html', quiz_no = quiz_id, object=question_data, media_template=media_template, enumerate=enumerate, current_page='quiz')
 
 
 @app.route('/quizresult')

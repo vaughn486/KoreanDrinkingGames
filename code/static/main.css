@@ -167,15 +167,19 @@ h2 {
     padding-top: 10px; 
 }
 
+.padding-bottom{
+    padding-bottom: 10px; 
+}
+
 .header-font{
     font-size: 15px;
 }
 
 .speech {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTywV25UijwZeKCQOWF7XFvy35xg3YQWrGjEwyJR3yESw&s');
+    background-image: url('/static/images/speaker.png');
     background-size: contain; 
-    width: 15px; 
-    height: 15px; 
+    width: 20px; 
+    height: 20px; 
     border: none;
     cursor: pointer; /* Sets cursor to pointer to indicate it's clickable */
 }
