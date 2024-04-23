@@ -101,6 +101,7 @@ $(document).ready(function(){
 
     function speakText(text) {
         const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ko-KR'; 
         utterance.onerror = function(event) {
             console.error('Speech synthesis error:', event.error);
         };
