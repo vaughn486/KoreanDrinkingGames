@@ -24,7 +24,7 @@ $(document).ready(function(){
         $("#content" + currentContent).hide();
         currentContent--;
         if (currentContent == 0) {
-            window.location.href = '/learn_etiquette/4';
+            window.location.href = '/learn_home/3';
         } 
         $("#content" + currentContent).show();
         // Update URL

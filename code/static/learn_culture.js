@@ -11,7 +11,7 @@ $(document).ready(function(){
         $("#content" + currentContent).hide();
         currentContent++;
         if (currentContent == 4){
-            window.location.href = '/learn_etiquette/1';
+            window.location.href = '/learn_home/2';
         } 
         $("#content" + currentContent).show();
         // Update URL
@@ -24,7 +24,7 @@ $(document).ready(function(){
         currentContent--;
         if (currentContent == 0) {
             updateLastAccessed(currentContent - 1);
-            window.location.href = '/';
+            window.location.href = '/learn_home/1';
         } 
         $("#content" + currentContent).show();
         // Update URL

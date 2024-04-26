@@ -12,7 +12,7 @@ $(document).ready(function(){
         currentContent++;
         if (currentContent == 5) {
             updateLastAccessed(currentContent - 1);
-            window.location.href = '/learn_games/1';
+            window.location.href = '/learn_home/3';
         } 
         $("#content" + currentContent).show();
         // Update URL
@@ -26,7 +26,7 @@ $(document).ready(function(){
         currentContent--;
         if (currentContent == 0) {
             updateLastAccessed(currentContent - 1);
-            window.location.href = '/learn_culture/3';
+            window.location.href = '/learn_home/2';
         } 
         $("#content" + currentContent).show();
         // Update URL
