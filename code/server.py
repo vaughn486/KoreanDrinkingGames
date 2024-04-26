@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 import re
 from datetime import datetime
+import time
 
 # DATA
 
@@ -76,6 +77,7 @@ question = [
 ]
 
 correct_answers_count = 0
+interactive_data = True
 
 #user's quiz selections stored here
 user_quiz_data = [
@@ -265,10 +267,17 @@ def quiz():
    correct_answers_count = 0
    return render_template('quiz_home.html', current_page='quiz')
 
+
+@app.route('/get_interactive_data', methods=['GET'])
+def get_interactive_data():
+   global interactive_data
+   updated_data = {'interactive_data': interactive_data}
+   return jsonify(updated_data)
+
 # display quiz question #
 @app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
 def pageview(quiz_id):
-   global correct_answers_count
+   global correct_answers_count, interactive_data
    if quiz_id == 1:
       correct_answers_count = 0 
        
@@ -282,10 +291,16 @@ def pageview(quiz_id):
    # handles user's choice
    if request.method == 'POST':
       selected_answer = request.form['answer']
+      interactive_data = False
       if selected_answer == question_data['a'][question_data['a_correct']]:
          correct_answers_count += 1
          print(quiz_id, correct_answers_count)
-        
+         interactive_data = True
+      else:
+         interactive_data = False
+
+      time.sleep(.5)
+
       # handles reaching end of quiz / advancing to next question
       if quiz_id > len(question):
          return redirect('/quizresult')
@@ -293,7 +308,7 @@ def pageview(quiz_id):
          return redirect(f'/quiz/{quiz_id+1}')
 
    # renders current question 
-   return render_template('quiz.html', quiz_no = quiz_id, object=question_data, media_template=media_template, enumerate=enumerate, current_page='quiz')
+   return render_template('quiz.html', quiz_no = quiz_id, object=question_data, media_template=media_template, enumerate=enumerate, current_page='quiz', interactive_data=interactive_data)
 
 
 @app.route('/quizresult')
