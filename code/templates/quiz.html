@@ -4,22 +4,25 @@
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
+<script>
+    var question_data = {{ question_data | tojson | safe }};
+    
+</script>
 
 
 <!-- access parts of the question using object.___ -->
 
 <div class = "quiz-title">
-    Question {{quiz_no}}
+    Question {{quiz_id}}
 </div>
 
 <div class="row">
-    {{object.q}}
+    {{question_data.q}}
 </div>
 
 
 <!-- where media is held -->
 <div class="row">
-    <!-- {{object.media}} -->
     {% if media_template %}
         {% include media_template %}
     
@@ -28,14 +31,11 @@
 
 
 <form class = "row" method="post" action="">
-    {% for idx, answer in enumerate(object.a) %}
-    <button type="submit" name="answer" value="{{ answer }}">{{ answer }}</button>
+    {% for idx, answer in enumerate(question_data.a) %}
+    <button type="submit" name="answer" value="{{ answer }}" id="{{ idx }}" class="quizbutton">{{ answer }}</button>
     {% endfor %}
 </form>
 
-<div class="row" id="updated-data">
-    what answer was on the last question: {{interactive_data}}
-</div>
 
 
 {% endblock %}

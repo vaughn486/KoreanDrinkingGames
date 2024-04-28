@@ -259,11 +259,4 @@ form.row {
     gap: 20px;        /* Adds space between buttons */
     justify-content: center; /* Centers buttons horizontally */
 }
-
-.correct{
-    background-color: green;
-}
-.incorrect{
-    background-color: red;
-}
-    
+  
