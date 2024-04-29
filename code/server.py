@@ -27,17 +27,17 @@ question = [
    },
    {
       "id": "2",
-      "q": "In the game Sam-Yuk-Gu, player 3 clapped once for the number 33:",
-      "media": "media_samyukgu.html",
+      "q": "In the game Sam-Yuk-Gu, player claps once for the number 19:",
+      "media": "",
       "a": ["Correct", "Drink!"],
-      "a_correct": 1
+      "a_correct": 0
    },
    {
       "id": "3",
       "q": "A man and his grandson are drinking soju. The grandson is feeling a bit woozy and says he’d like to stop drinking. Is this proper etiquette?",
       "media": "",
-      "a": ["Correct Test", "Incorrect Test"],
-      "a_correct": 0
+      "a": ["Yes", "No"],
+      "a_correct": 1
    },
    {
       "id": "4",
@@ -55,23 +55,23 @@ question = [
    },
    {
       "id": "6",
-      "q": "In the game Sam-Yuk-Gu:",
+      "q": "In the game Sam-Yuk-Gu, player 1 begins to say 3 ('th') but claps before finishing the word. Does player 1 still drink?",
       "media": "",
-      "a": ["Correct Test", "Incorrect Test"],
+      "a": ["Yes", "No"],
       "a_correct": 0
    },
    {
       "id": "7",
       "q": "What is the proper way a new hire should pour a VP’s drink?",
       "media": "",
-      "a": ["Correct Test", "Incorrect Test"],
-      "a_correct": 0
+      "a": ["One on bottle, one behind his back", "Both hands on bottle"],
+      "a_correct": 1
    },
    {
       "id": "8",
-      "q": "In the Nunchi Game:",
+      "q": "In the Nunchi Game, there are 5 players. The fifth player says five. Do they drink?",
       "media": "",
-      "a": ["Correct Test", "Incorrect Test"],
+      "a": ["Yes", "No"],
       "a_correct": 0
    }
 ]
@@ -307,7 +307,14 @@ def quizresult():
 def learn_home(id):
    # sending info to the learn home page
    object = content[id-1]
-   return render_template('learn_home.html', object=object)
+   current_page = ""
+   if id == 1:
+      current_page = "learning_culture"
+   if id == 2:
+      current_page = "learning_etiquette"
+   if id == 3:
+      current_page = "learning_games"
+   return render_template('learn_home.html', object=object, current_page=current_page)
 
 
 # FUNCTIONS
