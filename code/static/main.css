@@ -229,6 +229,14 @@ h2 {
     cursor: pointer; /* Sets cursor to pointer to indicate it's clickable */
 }
 
+.learn-button-container {
+    margin-top: 50px;
+    position: fixed; /* Keeps the buttons at the same spot even when scrolling */
+    left: 50%; /* Centers the container */
+    transform: translateX(-50%); /* Aligns center of the container to the center of the page */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
 .button-container {
     margin-top: 50px;
     position: fixed; /* Keeps the buttons at the same spot even when scrolling */
