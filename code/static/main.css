@@ -25,7 +25,7 @@
 
 .navbar-nav .nav-item .nav-link.active, 
 .navbar-nav .nav-item .nav-link:hover.active {
-    background-color: lightblue; /* Active color - doesn't change on hover */
+    background-color: rgb(112, 191, 217); /* Active color - doesn't change on hover */
     border-radius: 10px; /* Keep the rounded corners if needed */
 }
 body {
@@ -35,20 +35,57 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: lightblue;
+    background-color: rgb(112, 191, 217);
     color: white;
     width: 180px;
     height: 150px; 
     border-radius: 10px; 
     margin: 10px;
+    font-size: 20px;
     box-sizing: border-box;
     vertical-align: middle;
 }
 
+.learn-button-homepage, .quiz-button-homepage{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(112, 191, 217);
+    border-radius: 10px;
+    width: 140px; 
+    height: 75px;
+    color: white;
+    box-sizing: border-box;
+    border: none;
+}
+
+.quiz-question{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgrey;
+    border-radius: 10px;
+    width: 160px; 
+    height: 100px;
+    color: white;
+    font-size: 18px;
+    box-sizing: border-box;
+    border: none;
+
+}
 .quiz-button{
     background-color: darkgrey;
 }
 
+.quiz-button-homepage{
+    background-color: darkgrey;
+}
+.learn-button:hover, .learn-button-homepage:hover{
+    background-color: rgb(47, 175, 218);
+}
+.quiz-button:hover, .quiz-button-homepage:hover, .quiz-question:hover{
+    background-color: rgb(126, 125, 125);
+}
 .link:hover{
     color:white;
     text-decoration: none;
@@ -185,8 +222,8 @@ h2 {
 }
 
 .button-container {
+    margin-top: 50px;
     position: fixed; /* Keeps the buttons at the same spot even when scrolling */
-    bottom: 10px; /* Distance from the bottom of the viewport */
     left: 50%; /* Centers the container */
     transform: translateX(-50%); /* Aligns center of the container to the center of the page */
     z-index: 1000; /* Ensures it stays on top of other elements */
@@ -219,20 +256,20 @@ h2 {
 }
 
 .back:hover {
-    background-color: lightblue; /* Change color when hovered */
+    background-color: rgb(112, 191, 217); /* Change color when hovered */
 }
 .next:hover {
-    background-color: lightblue; /* Change color when hovered */
+    background-color: rgb(112, 191, 217); /* Change color when hovered */
 }
 
 .back:active {
     
-    outline:2px solid lightblue;
+    outline:2px solid rgb(112, 191, 217);
 }
 
 .next:active {
     
-    outline:2px solid lightblue;
+    outline:2px solid rgb(112, 191, 217);
 }
 
 .quiz-title{

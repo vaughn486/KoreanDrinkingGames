@@ -32,7 +32,7 @@
 
 <form class = "row" method="post" action="">
     {% for idx, answer in enumerate(question_data.a) %}
-    <button type="submit" name="answer" value="{{ answer }}" id="{{ idx }}" class="quizbutton">{{ answer }}</button>
+    <button type="submit" name="answer" value="{{ answer }}" id="{{ idx }}" class="quiz-question">{{ answer }}</button>
     {% endfor %}
 </form>
 
