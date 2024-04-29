@@ -5,6 +5,10 @@
     
 }
 
+.text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .navbar{
     padding: 0px;
     border-bottom: 1px solid lightgray;
@@ -102,8 +106,12 @@ body {
     font-size: 40px; 
 }
 .learning-title{
+    margin-left: 0;
     color: rgb(96, 96, 96);
 }
+.bold {
+    font-weight: bold;
+  }
 
 .home-image-container {
     position: relative; /* This makes it a container for absolute children */

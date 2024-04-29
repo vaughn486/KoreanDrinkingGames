@@ -153,12 +153,12 @@ content_games = [
     {
         'id': 1,
         'title': 'Nunchi Game (눈치게임)',
-        'description': 'Everyone begins shouting out numbers starting from 1 and going in order until the final person has said a number.'
+        'description': 'Instructions: Everyone begins shouting out numbers starting from 1 and going in order until the final person has said a number.'
     },
     {
         'id': 2,
-        'title': 'Sam-Yuk-Gu (3-6-9) 삼–육–구',
-        'description': 'At the beginning of each round, everyone chants Sam-Yuk-Gu 4x. Each player says one number counting up, going in a circle, but for each instance of a digit of 3, 6 or 9 you have to clap.'
+        'title': 'Sam-Yuk-Gu (삼–육–구)',
+        'description': 'Instructions: At the beginning of each round, everyone chants Sam-Yuk-Gu 4x. Each player says one number counting up, going in a circle, but for each instance of a digit of 3, 6 or 9 you have to clap.'
     }
 ]
 page_entry_times = {}
