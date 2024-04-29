@@ -20,22 +20,22 @@ import time
 question = [
    {
       "id": "1",
-      "q": "",
+      "q": "This Korean word translates to: ",
       "media": "media_geonbae.html",
       "a": ["Cheers", "Soju + Beer Mix"],
       "a_correct": 0
    },
    {
       "id": "2",
-      "q": "In the game Sam-Yuk-Gu, player claps once for the number 19:",
-      "media": "",
+      "q": "In the game Sam-Yuk-Gu:",
+      "media": "media_samyukgu1.html",
       "a": ["Correct", "Drink!"],
       "a_correct": 0
    },
    {
       "id": "3",
-      "q": "A man and his grandson are drinking soju. The grandson is feeling a bit woozy and says he’d like to stop drinking. Is this proper etiquette?",
-      "media": "",
+      "q": "According to Korean drinking etiquette:",
+      "media": "media_etiquette1.html",
       "a": ["Yes", "No"],
       "a_correct": 1
    },
@@ -48,29 +48,29 @@ question = [
    },
    {
       "id": "5",
-      "q": "SoMaek has how many shots of soju?",
-      "media": "",
+      "q": "According to Korean drinking culture:",
+      "media": "media_somaek.html",
       "a": ["1", "2"],
       "a_correct": 0
    },
    {
       "id": "6",
-      "q": "In the game Sam-Yuk-Gu, player 1 begins to say 3 ('th') but claps before finishing the word. Does player 1 still drink?",
-      "media": "",
+      "q": "In the game Sam-Yuk-Gu:",
+      "media": "media_samyukgu2.html",
       "a": ["Yes", "No"],
       "a_correct": 0
    },
    {
       "id": "7",
-      "q": "What is the proper way a new hire should pour a VP’s drink?",
-      "media": "",
+      "q": "According to Korean drinking etiquette:",
+      "media": "media_etiquette2.html",
       "a": ["One on bottle, one behind his back", "Both hands on bottle"],
       "a_correct": 1
    },
    {
       "id": "8",
-      "q": "In the Nunchi Game, there are 5 players. The fifth player says five. Do they drink?",
-      "media": "",
+      "q": "In the Nunchi Game:",
+      "media": "media_nunchigame2.html",
       "a": ["Yes", "No"],
       "a_correct": 0
    }

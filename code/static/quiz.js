@@ -9,10 +9,12 @@ $(document).ready(function(){
         if(parseInt(buttonId) === correct_answer){
             $(this).css("background-color", "rgb(139, 176, 142)");
             $(this).css("border", "0px solid rgb(139, 176, 142");
+            $(this).css("outline", "none");
 
         }else{
             $(this).css("background-color", "rgb(214, 144, 144)");
             $(this).css("border", "0px solid rgb(214, 144, 144");
+            $(this).css("outline", "none");
         }
     });
 
