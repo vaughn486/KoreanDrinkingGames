@@ -235,6 +235,7 @@ h2 {
     left: 50%; /* Centers the container */
     transform: translateX(-50%); /* Aligns center of the container to the center of the page */
     z-index: 1000; /* Ensures it stays on top of other elements */
+    bottom: 100px;
 }
 
 .back {
