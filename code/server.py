@@ -89,19 +89,23 @@ content = [
         'id': 1,
         'name': 'Korean Drinking Culture',
         'explanation': 'Learn about different types of drinks, how to cheers, and how to "cha". ',
-        'link': '/learn_culture/1'
+        'link': '/learn_culture/1',
+        'image_path': 'images/party.png'
     },
     {
         'id': 2,
         'name': 'Korean Drinking Etiquette',
         'explanation': 'Learn about basic Korean drinking etiquette, which includes how to pour and drink alcohol. ',
-        'link': '/learn_etiquette/1'
+        'link': '/learn_etiquette/1',
+        'image_path': 'images/pouring.png'
+
     },
     {
         'id': 3,
         'name': 'Korean Drinking Games',
         'explanation': 'Learn about two popular Korean drinking games: Nunchi and Sam-Yuk-Gu.',
-        'link': '/learn_games/1'
+        'link': '/learn_games/1',
+        'image_path': 'images/drink.png'
     }
 ]
 

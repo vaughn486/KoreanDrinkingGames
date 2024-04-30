@@ -11,10 +11,12 @@ $(document).ready(function(){
         $("#content" + currentContent).hide();
         currentContent++;
         if (currentContent == 4){
+            updateLastAccessed(currentContent - 1);
             window.location.href = '/learn_home/2';
         } 
         $("#content" + currentContent).show();
         // Update URL
+        updateLastAccessed(currentContent - 1);
         loadContent(currentContent)
     });
 
@@ -86,7 +88,7 @@ $(document).ready(function(){
     // Function to send a POST request to update the last accessed time
     function updateLastAccessed(lessonId) {
         $.ajax({
-            url: "/api/update_last_accessed_content",  
+            url: "/api/update_last_accessed_culture",  
             type: "POST",
             dataType: "json",
             data: { lesson_id: lessonId },

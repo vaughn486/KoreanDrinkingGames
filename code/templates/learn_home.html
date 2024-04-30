@@ -4,7 +4,10 @@
 
 <div class = "home-text">
     <div class = "home-title">{{object.name}}</div>
-    {{object.explanation}}
+    {{object.explanation}}<br>
+    <!-- <div class="centered-image-container"> -->
+        <img src="{{ url_for('static', filename=object.image_path) }}" class = "centered-image">
+    <!-- </div> -->
     <div class="learn-button-container">
         <a href={{object.link}} class="learn-button-homepage link">Learn</a>
     </div>
