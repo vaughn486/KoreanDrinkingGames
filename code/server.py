@@ -113,18 +113,18 @@ content = [
 content_culture = [
    {
       'id': 1,
-      'title': 'Korean Drinking Culture - Korean Drinks',
+      'title': 'Korean Drinks',
       'last_accessed': None
       
    },
    {
       'id': 2,
-      'title': 'Korean Drinking Culture - Cheers + General Drinking Etiquette',
+      'title': 'Cheers + General Drinking Etiquette',
       'last_accessed': None
    },
    {
       'id': 3,
-      'title': 'Korean Drinking Culture - How to "cha"',
+      'title': 'How to "cha"',
       'last_accessed': None
    }
 ]
@@ -132,23 +132,23 @@ content_culture = [
 content_etiquette = [
    {
       'id': 1,
-      'title': 'Formal Drinking Etiquette - Summary',
+      'title': 'Summary',
       'last_accessed': None
       
    },
    {
       'id': 2,
-      'title': 'Formal Drinking Etiquette - Rule 1',
+      'title': 'Rule 1',
       'last_accessed': None
    },
    {
       'id': 3,
-      'title': 'Formal Drinking Etiquette - Rule 2',
+      'title': 'Rule 2',
       'last_accessed': None
    },
    {
       'id': 4,
-      'title': 'Formal Drinking Etiquette - Rule 3',
+      'title': 'Rule 3',
       'last_accessed': None
    }
 ]
